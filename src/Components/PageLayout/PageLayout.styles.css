@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content-container {
+    margin-top: 60px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    min-width: 500px;
+}

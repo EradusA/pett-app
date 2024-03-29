@@ -1,0 +1,21 @@
+.appbar {
+    padding: 10px 10px;
+    background-color: #F8CF47;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.toolbar-content {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appbar .appbar-icon {
+    height: 40px;
+    padding-left: 20px;
+}

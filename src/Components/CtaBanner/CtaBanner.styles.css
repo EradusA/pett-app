@@ -1,0 +1,27 @@
+.cta-banner {
+    display: flex;
+    width: 100%;
+    height: 300px;
+  }
+  
+  .image-column {
+    flex: 2;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .blue-square {
+    flex: 1;
+    background-color: #2b6db1;
+    color: white;
+    padding-left: 20px;
+    padding-top:  20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }

@@ -1,0 +1,80 @@
+body, h1, h2, h3, h4 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 33px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+body {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+button {
+  background-color: #285DAB;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 24px;
+  width: 150px;
+}
+
+.special-button {
+  background-color: #ffffff;
+  color: #285DAB;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 24px;
+  width: 280px;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: #285DAB;
+  font-weight: 700;
+}
+
+input {
+  border-radius: 40px;
+  border: 2px solid #DDDDDD;
+  padding: 12px 20px;
+  width: 400px;
+}
+
+select {
+  border-radius: 40px;
+  border: 2px solid #DDDDDD;
+  padding: 12px 20px;
+  width: 140px;
+}
+
+select option {
+  border-radius: 40px;
+}

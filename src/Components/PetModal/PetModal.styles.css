@@ -1,0 +1,34 @@
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+  }
+  
+  .drawer-content {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: auto;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0px 5px rgba(0,0,0,0.5);
+    transition: right 0.5s;
+    padding: 20px;
+    padding-top: 60px;
+    box-sizing: border-box;
+  }
+  
+  .drawer-overlay.open {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .drawer-overlay.open .drawer-content {
+    right: 0;
+  }
