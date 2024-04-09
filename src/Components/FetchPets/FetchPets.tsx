@@ -1,37 +1,27 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import './Pets.styles.css';
 import CtaBanner from '../CtaBanner/CtaBanner';
-import PetModal from '../PetModal/PetModal';
+import { usePets } from '../PetContext/PetContext';
 import { Pet } from '../Types/Types';
 
+const Pets: React.FC = () => {
+  const { pets: fetchedPets } = usePets();
+  const navigate = useNavigate();
 
-interface PetsProps {
-  pets: Pet[];
-}
-
-const Pets: React.FC<PetsProps> = ({ pets }) => {
-  const [fetchedPets, setFetchedPets] = useState<Pet[]>([]);
-  const [filteredPets, setFilteredPets] = useState<Pet[]>([]);
+  const [filteredPets, setFilteredPets] = useState(fetchedPets.slice(0, 3));
   const [showAll, setShowAll] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPet, setSelectedPet] = useState<Pet | null>(null);
 
   useEffect(() => {
-    fetch('https://634e71874af5fdff3a5c61ba.mockapi.io/api/v1/pets')
-      .then(response => response.json())
-      .then((data: Pet[]) => {
-        setFetchedPets(data);
-        setFilteredPets(showAll ? data : data.slice(0, 3));
-      });
-  }, [showAll]);
+    setFilteredPets(showAll ? fetchedPets : fetchedPets.slice(0, 3));
+  }, [fetchedPets, showAll]);
 
   const handleSearch = (query: string, searchBy: keyof Pet) => {
-    const sourcePets = fetchedPets;
     if (query === '') {
-      setFilteredPets(showAll ? sourcePets : sourcePets.slice(0, 3));
+      setFilteredPets(showAll ? fetchedPets : fetchedPets.slice(0, 3));
     } else {
-      const filtered = sourcePets.filter(pet => {
+      const filtered = fetchedPets.filter(pet => {
         const value = pet[searchBy];
         return typeof value === 'string' && value.toLowerCase().includes(query.toLowerCase());
       });
@@ -41,9 +31,8 @@ const Pets: React.FC<PetsProps> = ({ pets }) => {
 
   const toggleShowAll = () => setShowAll(current => !current);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedPet(null);
+  const viewPetDetails = (petId: number) => {
+    navigate(`/pets/${petId}`);
   };
 
   return (
@@ -54,12 +43,11 @@ const Pets: React.FC<PetsProps> = ({ pets }) => {
           <div key={pet.id} className="pet-entry">
             <img src={pet.photoUrl} alt={pet.name} />
             <h3>{pet.name}</h3>
-            <button onClick={() => { setSelectedPet(pet); setIsModalOpen(true); }}>View</button>
+            <button onClick={(_e) => {viewPetDetails(pet.id)}}>View</button>
           </div>
         ))}
         <CtaBanner handleSeeAll={toggleShowAll} isShowingAll={showAll} />
       </div>
-      <PetModal isOpen={isModalOpen} onClose={closeModal} pet={selectedPet} />
     </div>
   );
 };

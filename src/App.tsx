@@ -1,15 +1,22 @@
 import './App.css';
-import PageLayout from '../src/Components/PageLayout/PageLayout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AdaptiveFilter from './Components/AdaptiveFilter/AdaptiveFilter';
-import Categories from '../src/Components/Categories/Categories';
+import PageLayout from './Components/PageLayout/PageLayout';
+import HomePage from './Pages/HomePage';
+import PetDetails from './Components/PetDetails/PetDetails';
+import { PetProvider } from './Components/PetContext/PetContext';
 
 function App() {
   return (
-    <PageLayout>
-      <AdaptiveFilter />
-      <Categories />
-    </PageLayout>
+    <BrowserRouter>
+    <PetProvider>
+      <PageLayout>
+        <Routes>
+        <Route path="/" element={<HomePage />} />
+          <Route path="/pets/:petId" element={<PetDetails />} />
+        </Routes>
+      </PageLayout>
+      </PetProvider>
+    </BrowserRouter>
   );
 }
 

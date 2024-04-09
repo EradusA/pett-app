@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  width: 220px;
+  width: 200px;
   height: 120px;
   border: none;
   cursor: pointer;
@@ -25,3 +25,4 @@
 .button-label {
   margin: 0;
 }
+
