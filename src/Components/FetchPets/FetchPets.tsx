@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
@@ -5,6 +6,7 @@ import './Pets.styles.css';
 import CtaBanner from '../CtaBanner/CtaBanner';
 import { usePets } from '../PetContext/PetContext';
 import { Pet } from '../Types/Types';
+import ArrowRight from '../Icons/ArrowRight';
 
 const Pets: React.FC = () => {
   const { pets: fetchedPets } = usePets();
@@ -42,8 +44,13 @@ const Pets: React.FC = () => {
         {filteredPets.map((pet) => (
           <div key={pet.id} className="pet-entry">
             <img src={pet.photoUrl} alt={pet.name} />
-            <h3>{pet.name}</h3>
-            <button onClick={(_e) => {viewPetDetails(pet.id)}}>View</button>
+            <div className="pet-details">
+              <h3>{pet.name}</h3>
+            </div>
+              <button className="view-desktop" onClick={(_e) => viewPetDetails(pet.id)}>View</button>
+              <button className="view-mobile" onClick={(_e) => viewPetDetails(pet.id)}>
+                <ArrowRight />
+              </button>
           </div>
         ))}
         <CtaBanner handleSeeAll={toggleShowAll} isShowingAll={showAll} />

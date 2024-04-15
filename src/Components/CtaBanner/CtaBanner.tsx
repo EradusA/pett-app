@@ -1,5 +1,6 @@
 import './CtaBanner.styles.css';
 import treats from '../../assets/images/treats.jpeg';
+import ArrowRight from '../Icons/ArrowRight';
 
 interface CtaBannerProps {
   handleSeeAll: () => void;
@@ -13,15 +14,19 @@ const CtaBanner: React.FC<CtaBannerProps> = ({ handleSeeAll, isShowingAll }) => 
         <img src={treats} alt="CtaBanner" className="banner-image" />
       </div>
       <div className="blue-square">
-          <h2>Pets directory</h2>
-          <p>See all pets available for adoption</p>
-          <p>promote them and get them a home</p>
-          <button onClick={handleSeeAll} className='special-button'>
-            {isShowingAll ? 'Show only 3' : 'See all'}
-          </button>
+        <h2>Pets directory</h2>
+        <p>See all pets available for adoption</p>
+        <p>promote them and get them a home</p>
+        <button onClick={handleSeeAll} className='special-button'>
+          {isShowingAll ? 'Show only 3' : 'See all'}
+        </button>
+
+        <button className='view-mobile' onClick={handleSeeAll}>
+          <ArrowRight />
+        </button>
       </div>
     </div>
   );
 };
-  
+
 export default CtaBanner;

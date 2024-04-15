@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { usePets } from '../PetContext/PetContext';
 
 const PetDetails = () => {
-  let { petId } = useParams<{ petId: string }>();
+  const { petId } = useParams<{ petId: string }>();
   const { pets } = usePets();
   
   const pet = pets.find(p => `${p.id}` === petId);

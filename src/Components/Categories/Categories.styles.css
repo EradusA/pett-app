@@ -17,12 +17,35 @@
   border-radius: 12px;
 }
 
-.button-icon {
-  position: absolute;
-  align-items: center;
-}
-
 .button-label {
   margin: 0;
 }
 
+@media (max-width: 767px) {
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 40px;
+  
+  }
+
+  .buttons-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-button {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    width: calc(200px * 1.5);
+    height: calc(120px * 1.5);
+    font-size: calc(100% * 1.5);
+  }
+
+  .custom-button:last-child {
+    margin-right: 0;
+  }
+}

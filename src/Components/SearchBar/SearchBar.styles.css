@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  width:700px;
+  width: 700px;
   padding-bottom: 10px;
 }
 
@@ -10,14 +10,40 @@
   padding: 10px;
   padding-right: 40px;
   flex-grow: 1;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 18px;
-  padding-left: 40px;
+  padding-left: 30px;
+  background-color: #F0F0F0;
 }
 
 .search-icon {
   position: absolute;
-  left: 10px;
+  left: 10px; /* Adjust this if you adjust the padding-left */
   width: 20px;
   height: 20px;
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 720px) {
+  .input-container {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .input-container input {
+    background-color: #F0F0F0; /* Light grey background color for mobile views */
+    border: none;
+    height: 50px;
+    border-radius: 50px;
+    padding: 15px;
+    padding-left: 55px; /* Adjusted for mobile to align placeholder text better */
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 20px; /* Increased from 10px to match the increased padding-left */
+    width: 25px;
+    height: 25px;
+  }
 }
